@@ -1,0 +1,61 @@
+# master
+alias zshconfig="vi ~/.zshrc"
+aliases () {
+	grep "$1" ~/.zsh/aliases
+}
+
+# ctags
+alias ctag_py='ctags -R --languages=python --exclude=.git --exclude=log --exclude=env'
+alias ctags="`brew --prefix`/bin/ctags"
+
+# vim
+alias vi='vim'
+
+# git aliases
+alias g='git status'
+alias gad='git add'
+alias gco='git checkout'
+alias gcm='git commit'
+alias glog='git log --oneline --graph'
+alias gst='git stash'
+alias gb='git branch'
+alias gd='git diff'
+alias greb='git rebase -i master'
+
+# tmux aliases
+alias tms='tmuxinator start'
+alias tml='tmux list-sessions'
+tmo () {
+	tmux new -s $1
+}
+
+# ssh aliases
+alias vagr='cd ~/onebox/ && vagrant ssh'
+
+# php
+alias psr-fix="php-cs-fixer fix $1 --verbose --level=psr2 --fixers=align_equals,align_double_arrowhitespacy_lines,short_array_syntax,double_arrow_multiline_whitespaces,duplicate_semicolon,extra_empty_lines,multiline_array_trailing_comma,new_with_braces,phpdoc_params,remove_leading_slash_use,remove_lines_between_uses,return,single_array_no_trailing_comma,unused_use,concat_with_spaces"
+
+# Filesystem
+alias ..='cd ..'            # Go up one directory
+alias ...='cd ../..'        # Go up two directories
+alias ....='cd ../../..'    # And for good measure
+alias l='ls -lah'           # Long view, show hidden
+alias la='ls -AF'           # Compact view, show hidden
+alias ll='ls -lFh'          # Long view, no hidden
+alias clean_pyc='find . -name "*.pyc" -type f -delete'   # pyc cleanup from al subdir
+
+# Jekyll
+alias jekyll_serve="bundle exec jekyll build && bundle exec jekyll serve"
+
+# Launchctl
+alias redis-launch="sudo launchctl start io.redis.redis-server"
+alias redis-stop="sudo launchctl stop io.redis.redis-server"
+alias mongo-launch="sudo launchctl load /Library/LaunchDaemons/io.mongo.mongodb.plist"
+alias mongo-stop="sudo launchctl unload /Library/LaunchDaemons/io.mongo.mongodb.plist"
+
+# Helpers
+alias grep='grep --color=auto' # Always highlight grep search term
+
+# virutalenv
+alias venv='. env/bin/activate'
+
